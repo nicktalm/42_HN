@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:42:11 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 10:46:22 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/23 15:33:54 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,3 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * result);
 }
-// int main() {
-//     const char *input = "		 -12345";
-//     int result = ft_atoi(input);
-// 	int result2 = atoi(input);
-
-//     printf("String: %s\n", input);
-//     printf("Integer ft_atoi: %d\n", result);
-// 	printf("Integer atoi: %d\n", result2);
-
-//     return 0;
-// }

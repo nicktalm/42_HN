@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:01:56 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 17:20:41 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:39:56 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	unsigned int	s_left;
 	unsigned int	a;
 
+	if (size == 0)
+		return (ft_strlen(src));
 	dest_length = ft_strlen(dest);
 	src_length = ft_strlen(src);
 	if (size <= dest_length)

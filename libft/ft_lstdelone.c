@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 12:33:58 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/23 15:36:36 by ntalmon          ###   ########.fr       */
+/*   Created: 2023/10/23 10:41:28 by ntalmon           #+#    #+#             */
+/*   Updated: 2023/10/23 17:58:13 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int a)
+// void	ft_lstdelone(t_list *lst, void (*del)(void *))
+// {
+	// void	*last_malloc;
+
+	// if (lst == NULL)
+	// 	return ;
+	// if (del != NULL && lst->content != NULL)
+	// {
+	// 	del(lst->content);
+	// 	lst->content = NULL;
+	// }
+	// if (lst == last_malloc)
+	// {
+	// 	free(lst);
+	// 	last_malloc = NULL;
+	// }
+// }
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if ((a >= 'A' && a <= 'Z') || (a >= 'a' && a <= 'z')
-		|| (a >= '0' && a <= '9'))
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	if (lst == NULL)
+		return ;
+	del(lst->content);
+	free(lst);
 }

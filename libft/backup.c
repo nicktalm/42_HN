@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 13:35:03 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/23 17:21:16 by ntalmon          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
 int	ft_find_char(char c, char const *set)
@@ -17,8 +5,6 @@ int	ft_find_char(char c, char const *set)
 	int	i;
 
 	i = 0;
-	if (!set)
-		return (0);
 	while (set[i] != '\0')
 	{
 		if (set[i] == c)

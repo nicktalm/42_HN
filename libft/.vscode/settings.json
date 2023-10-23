@@ -5,6 +5,7 @@
 		"string_view": "c",
 		"__locale": "c",
 		"__string": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"iterator": "c"
 	}
 }

@@ -38,10 +38,10 @@ BONUSPART = ft_lstnew.c \
 			ft_lstsize.c \
 			ft_lstlast.c \
 			ft_lstadd_back.c \
-# 			ft_lstdelone.c \
-# 			ft_lstclear.c \
-# 			ft_lstiter.c \
-# 			ft_lstmap.c
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c
 mandatory = $(MANDATORYPART:.c=.o)
 bonus = $(BONUSPART:.c=.o)
 CFLAGS      = -Wall -Werror -Wextra
