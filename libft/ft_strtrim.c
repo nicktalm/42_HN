@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 13:35:03 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 10:48:46 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/17 11:02:18 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	while (start < end)
 		newstr[i++] = s1[start++];
-	newstr[i] = 0;
+	newstr[i] = '\0';
 	return (newstr);
 }
 
 // int	main(void)
 // {
-// 	char s1[] = "Hello 42 Students!!!";
-// 	char *a;
-// 	char *b;
-// 	char *c;
+// 	char	s1[] = "Hello 42 Students!!!";
+// 	char	*a;
+// 	char	*b;
+// 	char	*c;
 
 // 	a = ft_strtrim(s1, "H");
 // 	b = ft_strtrim(s1, "s!nt");

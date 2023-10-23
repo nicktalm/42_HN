@@ -1,61 +1,45 @@
 #include "libft.h"
 
-char transform(unsigned int index, char c)
+
+// returns new node created with 'content'
+t_list	*ft_lstnew(void *content)
 {
-    if (c >= 'a' && c <= 'z')
-    {
-        // Kleinbuchstaben in Großbuchstaben umwandeln
-        return c - 'a' + 'A';
-    }
-    else
-    {
-        // Andere Zeichen unverändert lassen
-        return c;
-    }
+	t_list	*temp;
+
+	temp = (t_list *)malloc(sizeof(t_list));
+	if (temp == NULL)
+		return (NULL);
+	temp->content = content;
+	temp->next = NULL;
+	return (temp);
 }
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
-{
-    unsigned int i = 0;
-    char *substr;
-
-    if (s == NULL || f == NULL)
-        return NULL;
-
-    substr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-    if (substr == NULL)
-        return NULL;
-
-    while (s[i] != '\0')
-    {
-        substr[i] = f(i, s[i]);
-        i++;
-    }
-
-    substr[i] = '\0';
-    return substr;
-}
 
 int main()
 {
-    const char *inputString = "Hello, World!";
-    char *transformedString;
+    // In dieser main-Funktion erstellen wir ein neues Listenelement und überprüfen es
 
-    // Anwenden der ft_strmapi-Funktion mit der transform-Funktion
-    transformedString = ft_strmapi(inputString, transform);
+    // Ein Beispielinhalt (hier ein Integer)
+    int *data = (int *)malloc(sizeof(int));
+    *data = 42;
 
-    if (transformedString != NULL)
+    // Aufrufen der ft_lstnew-Funktion, um ein neues Listenelement zu erstellen
+    t_list *newNode = ft_lstnew(data);
+
+    if (newNode == NULL)
     {
-        printf("Original: %s\n", inputString);
-        printf("Transformiert: %s\n", transformedString);
+        printf("Fehler: Konnte kein neues Listenelement erstellen\n");
+        return 1;
+    }
 
-        // Speicher freigeben, nachdem der Zeichenstring nicht mehr benötigt wird
-        free(transformedString);
-    }
-    else
-    {
-        printf("Fehler beim Transformieren des Zeichenstrings.\n");
-    }
+    // Ausgabe des Inhalts des Listenelements (in diesem Fall ein Integer)
+    printf("Inhalt des Listenelements: %d\n", *((int *)newNode->content));
+
+    // Beachten Sie, dass Sie den Speicher für den Inhalt freigeben sollten, wenn er nicht mehr benötigt wird
+    free(data);
+
+    // Freigabe des Listenelements selbst
+    free(newNode);
 
     return 0;
 }
