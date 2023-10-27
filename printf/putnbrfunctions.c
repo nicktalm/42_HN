@@ -6,50 +6,60 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:32:30 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/27 12:16:04 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/27 13:16:22 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_nbr(char c, int *counter)
+int	ft_putchar_nbr(char c, int *counter)
 {
-	write (1, &c, 1);
+	if (write (1, &c, 1) == -1)
+		return (-1);
 	(*counter)++;
+	return (0);
 }
 
-void	ft_putnbr(int n, int *counter)
+int	ft_putnbr(int n, int *counter)
 {
 	if (n < 0)
 	{
-		ft_putchar_nbr('-', counter);
+		if (ft_putchar_nbr('-', counter) == -1)
+			return (-1);
 		if (n == -2147483648)
 		{
-			write(1, "2147483648", 10);
+			if (write(1, "2147483648", 10) == -1)
+				return (-1);
 			*counter += 10;
-			return ;
+			return (0);
 		}
 		n = -n;
 	}
 	if (n > 9)
 	{
-		ft_putnbr(n / 10, counter);
+		if (ft_putnbr(n / 10, counter) == -1)
+			return (-1);
 		n = n % 10;
 	}
-	ft_putchar_nbr(n + 48, counter);
+	if (ft_putchar_nbr(n + 48, counter) == -1)
+		return (-1);
+	return (0);
 }
 
-void	ft_u_putnbr(unsigned int n, int *counter)
+int	ft_u_putnbr(unsigned int n, int *counter)
 {
 	if (n > 9)
 	{
-		ft_putnbr(n / 10, counter);
+		if (ft_putnbr(n / 10, counter) == -1)
+			return (-1);
 		n = n % 10;
 	}
-	ft_putchar_nbr(n + 48, counter);
+	if (ft_putchar_nbr(n + 48, counter) == -1)
+		return (-1);
+	return (0);
 }
 
-void	ft_p_putnbr(unsigned long int ch, int *counter)
+int	ft_p_putnbr(unsigned long int ch, int *counter)
 {
 	char	*base;
 
@@ -60,5 +70,7 @@ void	ft_p_putnbr(unsigned long int ch, int *counter)
 		ft_p_putnbr(ch % 16, counter);
 	}
 	if (ch < 16)
-		ft_putchar_nbr(base[ch], counter);
+		if (ft_putchar_nbr(base[ch], counter) == -1)
+			return (-1);
+	return (0);
 }

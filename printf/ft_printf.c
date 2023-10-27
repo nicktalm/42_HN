@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:41:42 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/27 10:37:29 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/27 16:27:40 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ int	ft_printf(const char *print, ...)
 		if (print[i] == '%')
 		{
 			i++;
-			what_to_print1(ptr, &c, print[i]);
-			what_to_print2(ptr, &c, print[i]);
+			if (flag_check(ptr, &c, print[i]) == -1)
+				return (-1);
 		}
 		else
 		{
-			ft_putchar(print[i]);
+			if (ft_putchar(print[i]) == -1)
+				return (-1);
 			c++;
 		}
 		i++;
@@ -41,6 +42,16 @@ int	ft_printf(const char *print, ...)
 	return (c);
 }
 
+int	flag_check(va_list ptr, int *c, char print)
+{
+	if (what_to_print1(ptr, c, print) == -1)
+		return (-1);
+	if (what_to_print2(ptr, c, print) == -1)
+		return (-1);
+	if (what_to_print3(ptr, c, print) == -1)
+		return (-1);
+	return (0);
+}
 // int	main(void)
 // {
 // 	char	mychar;

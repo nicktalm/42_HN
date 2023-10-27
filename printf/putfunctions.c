@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:34:04 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/27 10:38:07 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/27 13:02:22 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,27 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	ft_putstr(char *s, int *counter)
+int	ft_putstr(char *s, int *counter)
 {
 	size_t	size;
 
 	if (s == NULL)
 	{
-		write (1, "(null)", 6);
+		if (write (1, "(null)", 6) == -1)
+			return (-1);
 		*counter = *counter + 6;
-		return ;
+		return (0);
 	}
 	size = ft_strlen(s);
-	write (1, s, size);
+	if (write (1, s, size) == -1)
+		return (-1);
 	*counter = *counter + size;
+	return (0);
 }
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
-	write (1, &c, 1);
+	if (write (1, &c, 1) == -1)
+		return (-1);
+	return (0);
 }
