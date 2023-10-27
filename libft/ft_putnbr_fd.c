@@ -6,18 +6,18 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:17:21 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 17:00:50 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:05:44 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_putchar(char c, int fd)
+// Ganzzahl in Zeichenkettenform in Dateideskriptor (fd) auszugeben
+static void	ft_putchar(char c, int fd)
 {
 	write(fd, &c, 1);
 }
 
-void	ft_put_positive_nbr(int nb, int fd)
+static void	ft_put_positive_nbr(int nb, int fd)
 {
 	char	a[12];
 	int		i;
@@ -54,9 +54,3 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	ft_put_positive_nbr(n, fd);
 }
-
-// int	main(void)
-// {
-// 	ft_putnbr_fd(1234, 1);
-// 	return (0);
-// }

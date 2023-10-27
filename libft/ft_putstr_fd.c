@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:55:26 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 16:16:15 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 12:38:34 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,3 @@ void	ft_putstr_fd(char *s, int fd)
 	size = ft_strlen(s);
 	write (fd, s, size);
 }
-
-// int	main(void)
-// {
-// 	ft_putstr_fd("Hello 42!", 1);
-// 	return (0);
-// }

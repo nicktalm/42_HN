@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   putfunctions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 13:42:11 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/24 17:25:06 by ntalmon          ###   ########.fr       */
+/*   Created: 2023/10/26 10:34:04 by ntalmon           #+#    #+#             */
+/*   Updated: 2023/10/27 10:38:07 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-// ASCII to Integer
-int	ft_atoi(const char *str)
-{
-	int	result;
-	int	sign;
-	int	i;
+#include "ft_printf.h"
 
-	result = 0;
-	sign = 1;
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
 	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	while (str[i] != '\0')
 		i++;
-	if (str[i] == '-')
-		sign = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	return (i);
+}
+
+void	ft_putstr(char *s, int *counter)
+{
+	size_t	size;
+
+	if (s == NULL)
 	{
-		result = result * 10 + str[i] - '0';
-		i++;
+		write (1, "(null)", 6);
+		*counter = *counter + 6;
+		return ;
 	}
-	return (sign * result);
+	size = ft_strlen(s);
+	write (1, s, size);
+	*counter = *counter + size;
+}
+
+void	ft_putchar(char c)
+{
+	write (1, &c, 1);
 }

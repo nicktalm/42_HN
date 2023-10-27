@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:45:26 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/13 12:59:15 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 12:36:33 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,3 @@ int	ft_isascii(int a)
 		return (0);
 	}
 }
-
-// int	main(void)
-// {
-// 	char	a;
-
-// 	a = 'a';
-// 	if (ft_isascii(a))
-// 	{
-// 		printf("%c ist ein ASCII-Zeichen.\n", a);
-// 	}
-// 	else
-// 	{
-// 		printf("%c ist kein ASCII-Zeichen.\n", a);
-// 	}
-// 	return (0);
-// }

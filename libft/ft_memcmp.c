@@ -6,12 +6,12 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:07:46 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 17:18:22 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 17:39:22 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// zwei Speicherbereiche miteinander zu vergleichen
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*ptr1;
@@ -32,18 +32,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-// #include <stdio.h>
-// #include <string.h>
-
-// int main() {
-// 	char str1[] = "Hello, World!";
-// 	char str2[] = "Hello, Warld!";
-
-// 	size_t len = sizeof(str1);
-// 	int result = ft_memcmp(str1, str2, len);
-
-// 	printf("%d\n", result);
-
-// 	return 0;
-// }

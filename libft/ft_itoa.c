@@ -6,13 +6,13 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:15:56 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/17 13:27:36 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 17:28:03 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_count_digit(int n)
+// Integer to ASCII
+static int	ft_count_digit(int n)
 {
 	int		counter;
 	int		numb;
@@ -30,7 +30,7 @@ int	ft_count_digit(int n)
 	return (counter);
 }
 
-char	*ft_exist(int n)
+static char	*ft_exist(int n)
 {
 	char	*newstr;
 	int		counter;
@@ -67,13 +67,3 @@ char	*ft_itoa(int n)
 		newstr[counter] = '-';
 	return (newstr);
 }
-
-// #include <limits.h>
-
-// int	main(void)
-// {
-// 	int	n;
-
-// 	n = INT_MIN;
-// 	printf("String: %s\n", ft_itoa(n));
-// }

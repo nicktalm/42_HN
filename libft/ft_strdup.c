@@ -6,12 +6,12 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:16:57 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 17:20:29 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:40:55 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// eine Kopie einer Zeichenkette (String) src zu erstellen
 char	*ft_strdup(const char *src)
 {
 	char	*str_copy;

@@ -6,12 +6,12 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:09:27 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 17:21:12 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 19:01:48 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// Teil einer Zeichenkette zu extrahieren und eine neue Zeichenkette
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*newstr;

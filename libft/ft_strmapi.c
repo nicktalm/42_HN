@@ -6,12 +6,12 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:30:01 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 17:44:30 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:51:29 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// auf jedes Zeichen wird f angewendet, aber neuer string
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;

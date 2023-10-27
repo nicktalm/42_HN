@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:33:30 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/23 15:33:38 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 15:20:17 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,26 +91,3 @@ char	**ft_split(char const *s, char c)
 	buffer[i] = NULL;
 	return (buffer);
 }
-
-// #include <stdio.h>
-
-// int main() {
-//     char input[] = "Hello,World,OpenAI,GPT-3.5";
-//     char separator = ',';
-
-//     char **result = ft_split(input, separator);
-//     if (result) {
-//         for (int i = 0; result[i] != NULL; i++) {
-//             printf("Token %d: %s\n", i, result[i]);
-//         }
-
-//         // Freigabe des allokierten Speichers
-//         // ft_free_all_split_alloc(result, i);
-
-//     } else {
-//         printf("Split fehlgeschlagen.\n");
-//     }
-// 	system("leaks a.out");
-
-//     return 0;
-// }

@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 13:42:11 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/24 17:25:06 by ntalmon          ###   ########.fr       */
+/*   Created: 2023/10/17 12:53:00 by ntalmon           #+#    #+#             */
+/*   Updated: 2023/10/24 17:38:06 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// ASCII to Integer
-int	ft_atoi(const char *str)
+// Anzahl der Elemente in einer verketteten Liste zählen
+int	ft_lstsize(t_list *lst)
 {
-	int	result;
-	int	sign;
-	int	i;
+	int	c;
 
-	result = 0;
-	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
-		sign = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	c = 0;
+	while (lst != NULL)
 	{
-		result = result * 10 + str[i] - '0';
-		i++;
+		c++;
+		lst = lst->next;
 	}
-	return (sign * result);
+	return (c);
 }

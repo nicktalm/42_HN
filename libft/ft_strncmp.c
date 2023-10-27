@@ -6,12 +6,12 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:45:42 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 11:32:14 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:53:16 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// Vergleich von s1 und s2 bis n
 int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
 	size_t	a;
@@ -28,17 +28,3 @@ int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 	}
 	return (0);
 }
-
-// #include <stdio.h>
-
-// int ft_strncmp(char *s1, char *s2, unsigned int n);
-
-// int main()
-// {
-//     char str1[] = "Hellob";
-//     char str2[] = "Hellaa";
-//     unsigned int n = 6;
-// 	char a = ft_strncmp(str1, str2, n);
-// 	printf("%d",a);
-//     return 0;
-// }

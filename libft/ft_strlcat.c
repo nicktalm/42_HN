@@ -6,12 +6,12 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:01:56 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/23 16:39:56 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:47:55 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// eine Quell-Zeichenkette (src) an das Ende (dest) anzuhängen
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	unsigned int	dest_length;
@@ -37,17 +37,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[dest_length + a] = '\0';
 	return (dest_length + src_length);
 }
-
-// int main()
-// {
-//     char dest[20] = "Hello ";
-//     char *src = "world";
-//     unsigned int size = 12;
-
-//     unsigned int result = ft_strlcat(dest, src, size);
-
-//     printf("After ft_strlcat: %s\n", dest);
-//     printf("Total length after concatenation: %u\n", result);
-
-//     return (0);
-// }

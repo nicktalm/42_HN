@@ -6,16 +6,14 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:54:25 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/23 11:11:24 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 12:48:17 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 # include <limits.h>
 

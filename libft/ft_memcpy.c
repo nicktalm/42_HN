@@ -6,12 +6,12 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:45:30 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/23 12:43:27 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 17:40:20 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// dient dazu n Bytes von src in dest zu kopieren
 void	*ft_memcpy(void *dest, const void *src, int n)
 {
 	char		*char_dest;
@@ -30,18 +30,3 @@ void	*ft_memcpy(void *dest, const void *src, int n)
 	}
 	return (dest);
 }
-
-// int main() {
-//     char source[] = "Hello, World!";
-//     char destination[20];  // Zielspeicher
-
-//     // Kopiere die ersten 13 Bytes von source in destination
-//     memcpy(destination, source, 13);
-
-//     // Nullterminiere den Zielstring (manuell hinzufügen)
-//     destination[13] = '\0';
-
-//     printf("Kopierter String: %s\n", destination);
-
-//     return 0;
-// }

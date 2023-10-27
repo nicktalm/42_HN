@@ -6,12 +6,12 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:28:52 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/23 16:31:06 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:54:49 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// teil-str in str suchen bis n
 char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
 	size_t	a;

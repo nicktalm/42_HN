@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:02:56 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/16 16:17:02 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 12:38:21 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,3 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
 }
-
-// int	main(void)
-// {
-// 	ft_putchar_fd('H', 2);
-// 	return (0);
-// }

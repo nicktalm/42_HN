@@ -6,13 +6,13 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 13:35:03 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/23 17:21:16 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/10/24 19:01:15 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_find_char(char c, char const *set)
+// set wird aus s1 vorne und hinten entfernt
+static int	ft_find_char(char c, char const *set)
 {
 	int	i;
 
@@ -52,18 +52,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	newstr[i] = '\0';
 	return (newstr);
 }
-
-// int	main(void)
-// {
-// 	char	s1[] = "Hello 42 Students!!!";
-// 	char	*a;
-// 	char	*b;
-// 	char	*c;
-
-// 	a = ft_strtrim(s1, "H");
-// 	b = ft_strtrim(s1, "s!nt");
-// 	c = ft_strtrim(s1, "H!!");
-// 	printf("%s\n", a);
-// 	printf("%s\n", b);
-// 	printf("%s\n", c);
-// }

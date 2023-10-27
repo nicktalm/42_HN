@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 13:42:11 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/10/24 17:25:06 by ntalmon          ###   ########.fr       */
+/*   Created: 2023/10/23 10:46:22 by ntalmon           #+#    #+#             */
+/*   Updated: 2023/10/24 17:32:35 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// ASCII to Integer
-int	ft_atoi(const char *str)
+// alle Elemente einer verketteten Liste löschen
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int	result;
-	int	sign;
-	int	i;
+	t_list	*c;
+	t_list	*next;
 
-	result = 0;
-	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
-		sign = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	if (lst == NULL || del == NULL || *lst == NULL)
+		return ;
+	c = *lst;
+	while (c != NULL)
 	{
-		result = result * 10 + str[i] - '0';
-		i++;
+		next = c->next;
+		del(c->content);
+		free(c);
+		c = next;
 	}
-	return (sign * result);
+	*lst = NULL;
 }
