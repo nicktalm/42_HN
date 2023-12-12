@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:24:58 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/07 17:34:44 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/12/12 13:51:38 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ int	check_map_path(char **map, t_point	size)
 	cpymap = dupmap(map, size);
 	fill(cpymap, size, position_p);
 	count_characters(cpymap, &e, &c, &p);
+	freearray2 (cpymap);
 	if (e > 0 || c > 0 || p > 0)
-		return (error(3));
+		error(3, map);
 	return (1);
 }
 
@@ -59,7 +60,7 @@ int	check_map_characters(char **map)
 	p = 0;
 	size = count_characters(map, &e, &c, &p);
 	if (e != 1 || c == 0 || p != 1)
-		return (error_characters(&e, &c, &p));
+		return (error_characters(&e, &c, &p, map));
 	if (e == 1 || c >= 1 || p == 1)
 		check_map_path(map, size);
 	return (0);
@@ -87,24 +88,4 @@ t_point	count_characters(char **map, int *e, int *c, int *p)
 		size.y++;
 	}
 	return (size);
-}
-
-int	check_empty_file(char **map)
-{
-	t_point	size;
-
-	size.x = 0;
-	size.y = 0;
-	while (map[size.y])
-	{
-		size.x = 0;
-		while (map[size.y][size.x])
-		{
-			if (map[size.y][size.x] == '\0')
-				error(7);
-			size.x++;
-		}
-		size.y++;
-	}
-	return (0);
 }

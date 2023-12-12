@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:25:28 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/07 17:35:42 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/12/12 13:57:40 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,8 @@ int			check_map_surrounded(char **map);
 
 int			check_map_valid_char(char **map);
 
-int			check_empty_file(char **map);
-
-int			error_characters(int *e, int *c, int *p);
-int			error(int i);
+int			error_characters(int *e, int *c, int *p, char **map);
+void		error(int i, char **map);
 void		exit_and_free(t_vars *vars);
 void		exit_and_collectible(t_vars *vars);
 
@@ -101,5 +99,11 @@ void		create_c_e(t_vars *data);
 void		create_p(t_vars *data);
 
 void		freearray(char **cpymap);
+void		freearray2(char **cpymap);
+
+void		leaks(void);
+
+void		free_map(char **map);
+void		error2(int i);
 
 #endif

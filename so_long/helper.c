@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:43:29 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/07 17:35:33 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/12/12 13:46:46 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int	count_rows(int fd)
 		i = 0;
 		counter = count_rows_2(buffer, counter, i);
 	}
+	free(buffer);
 	return (counter + 1);
 }
 

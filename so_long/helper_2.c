@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 20:17:13 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/07 17:35:57 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/12/12 10:50:23 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,18 @@ void	freearray(char **cpymap)
 		j++;
 	}
 	free(cpymap);
-	error(8);
+	error(8, cpymap);
+}
+
+void	freearray2(char **cpymap)
+{
+	int	j;
+
+	j = 0;
+	while (cpymap[j])
+	{
+		free(cpymap[j]);
+		j++;
+	}
+	free(cpymap);
 }

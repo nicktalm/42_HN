@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:32:13 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/04 17:07:29 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/12/12 12:40:03 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	check_all_row_lengths(char **map, int first_row_length)
 	{
 		current_row = get_string_length(map[i]) - 1;
 		if (current_row != first_row_length)
-			return (error(1));
+			error(1, map);
 		i++;
 	}
 	return (1);
@@ -64,20 +64,20 @@ int	check_map_surrounded(char **map)
 	while (map[j] != NULL)
 	{
 		if (map[j][0] != '1' || map[j][get_string_length(map[j]) - 1] != '1')
-			return (error(2));
+			error(2, map);
 		j++;
 	}
 	while (map[0][i] != '\n' && map[0][i] != '\0')
 	{
 		if (map[0][i++] != '1')
-			return (error(2));
+			error(2, map);
 	}
 	i = 0;
 	j = j - 1;
 	while (map[j][i] != '\n' && map[j][i] != '\0')
 	{
 		if (map[j][i++] != '1')
-			return (error(2));
+			error(2, map);
 	}
 	return (1);
 }
@@ -96,7 +96,7 @@ int	check_map_valid_char(char **map)
 			if (map[size.y][size.x] != '0' && map[size.y][size.x] != '1'
 				&& map[size.y][size.x] != 'E' && map[size.y][size.x] != 'C'
 				&& map[size.y][size.x] != 'P' && map[size.y][size.x] != '\n')
-				error(6);
+				error(6, map);
 			size.x++;
 		}
 		size.y++;
