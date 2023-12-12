@@ -6,13 +6,13 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:43:29 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/12 13:46:46 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/12/12 17:13:54 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**dupmap(char **map, t_point	size)
+char	**dupmap(char **map, t_point size)
 {
 	char	**cpymap;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:25:28 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/12 13:57:40 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/12/12 18:00:29 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,10 @@ void		leaks(void);
 
 void		free_map(char **map);
 void		error2(int i);
+
+void		display_in_window(t_vars *data);
+
+int			count_column(t_vars *data);
+void		display_in_window(t_vars *data);
 
 #endif

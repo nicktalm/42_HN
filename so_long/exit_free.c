@@ -6,62 +6,68 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:58:57 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/12 15:49:37 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/12/12 18:05:52 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	exit_and_collectible(t_vars *vars)
+void	exit_and_collectible(t_vars *data)
+{
+	if (data->map[data->p_h][data->p_w] == 'E')
+	{
+		data->steps++;
+		if (data->coll_nbr == 0)
+		{
+			mlx_close_window(data->mlx);
+			ft_printf("\nCongrats, you won with %i moves!\n\n", data->steps);
+			exit_and_free(data);
+		}
+	}
+	if (data->map[data->p_h][data->p_w] == 'C')
+	{
+		mlx_image_to_window(data->mlx, data->image[S],
+			data->p_w * 32, data->p_h * 32);
+		data->map[data->p_h][data->p_w] = '0';
+		check_z_instances(data);
+	}
+	data->steps++;
+	ft_printf("move: %d\n", data->steps);
+	display_in_window(data);
+}
+
+void	display_in_window(t_vars *data)
 {
 	char	*moves;
 
-	if (vars->map[vars->p_h][vars->p_w] == 'E')
-	{
-		vars->steps++;
-		if (vars->coll_nbr == 0)
-		{
-			mlx_close_window(vars->mlx);
-			ft_printf("\nCongrats, you won with %i moves!\n\n", vars->steps);
-			exit_and_free(vars);
-		}
-	}
-	if (vars->map[vars->p_h][vars->p_w] == 'C')
-	{
-		mlx_image_to_window(vars->mlx, vars->image[S],
-			vars->p_w * 32, vars->p_h * 32);
-		vars->map[vars->p_h][vars->p_w] = '0';
-		check_z_instances(vars);
-	}
-	vars->steps++;
-	ft_printf("move: %d\n", vars->steps);
-	moves = ft_itoa(vars->steps);
-	mlx_image_to_window(vars->mlx, vars->image[W], 128, 0);
-	mlx_image_to_window(vars->mlx, vars->image[W], 160, 0);
-	mlx_put_string(vars->mlx, moves, 140, 0);
+	moves = ft_itoa(data->steps);
+	mlx_image_to_window(data->mlx, data->image[W], 128, 0);
+	mlx_image_to_window(data->mlx, data->image[W], 160, 0);
+	mlx_put_string(data->mlx, moves, 138, 0);
 	free (moves);
 }
 
-void	exit_and_free(t_vars *vars)
+void	exit_and_free(t_vars *data)
 {
 	int		h;
 	t_point	size;
 
 	h = 0;
-	while (h < size.y && vars->map[h])
+	size = count_size_map(data->map);
+	while (h < size.y && data->map[h])
 	{
-		free(vars->map[h]);
+		free(data->map[h]);
 		h++;
 	}
-	free(vars->map);
+	free(data->map);
 	h = 0;
 	while (h < TEXTURES)
 	{
-		if (vars->textures[h])
-			mlx_delete_texture(vars->textures[h]);
+		if (data->textures[h])
+			mlx_delete_texture(data->textures[h]);
 		h++;
 	}
-	mlx_terminate(vars->mlx);
+	mlx_terminate(data->mlx);
 	exit (0);
 }
 

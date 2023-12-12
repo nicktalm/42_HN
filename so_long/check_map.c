@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:10 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/12 14:09:54 by ntalmon          ###   ########.fr       */
+/*   Updated: 2023/12/12 17:00:20 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**start(int argc, char **argv)
 		check_map(map);
 	}
 	else
-		error(5, map);
+		error2(5);
 	return (map);
 }
 

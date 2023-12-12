@@ -28,6 +28,11 @@ $(NAME):		$(OBJS)
 all:		$(NAME)
 %.o:%.c
 				cc ${CFLAGS} -c $< -o $@
+
+MLX42:
+	@if [ ! -d "lib/libmlx/MLX42" ]; then cd $(MLX) && git clone https://github.com/codam-coding-college/MLX42.git; fi
+	@cd lib/libmlx/MLX42 && cmake -B build && cmake --build build -j4
+
 clean:
 				rm -f $(OBJS)
 				@cd $(LIBFT) && $(MAKE) clean
