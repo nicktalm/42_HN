@@ -6,24 +6,24 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:52:21 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/22 12:26:50 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/01/16 14:57:03 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	list_a_sorted(t_list *stack)
+int	list_a_sorted(t_node *stack)
 {
 	while (stack->next)
 	{
-		if (*(int *)stack->content > *(int *)stack->next->content)
+		if (stack->nbr > stack->next->nbr)
 			return (0);
 		stack = stack->next;
 	}
 	return (1);
 }
 
-int	stack_size(t_list *stack)
+int	stack_size(t_node *stack)
 {
 	int	c;
 
@@ -36,58 +36,50 @@ int	stack_size(t_list *stack)
 	return (c);
 }
 
-t_list	*find_max(t_list *stack)
+void	sort_three(t_node **stack)
 {
-	int		max;
-	t_list	*max_nbr;
-
-	max = INT_MIN;
-	max_nbr = NULL;
-	while (stack)
-	{
-		if (*(int *)stack->content > max)
-		{
-			max = *(int *)stack->content;
-			max_nbr = stack;
-		}
-		stack = stack->next;
-	}
-	return (max_nbr);
-}
-
-void	sort_three(t_list **stack)
-{
-	t_list	*max_nbr;
+	t_node	*max_nbr;
 
 	max_nbr = find_max(*stack);
 	if (*stack == max_nbr)
 		rotate_a(stack);
 	else if ((*stack)->next == max_nbr)
 		rotate_r_a(stack);
-	if (*(int *)(*stack)->content > *(int *)(*stack)->next->content)
+	if ((*stack)->nbr > (*stack)->next->nbr)
 		swap_a(stack);
 }
 
 int	main(int argc, char **argv)
 {
-	t_list	*list_a;
-	t_list	*list_b;
-	t_list	*new_node;
+	t_node	*list_a;
+	t_node	*list_b;
+	t_node	*new_node;
 	int		i;
 	int		*number;
+	char	**string;
+	int		j;
 
 	i = 1;
+	j = 0;
+	list_a = NULL;
 	list_b = NULL;
+	string = NULL;
 	while (i < argc)
 	{
-		number = (int *)malloc(sizeof(int));
-		*number = ft_atoi(argv[i]);
-		new_node = ft_lstnew(number);
-		if (new_node)
-			ft_lstadd_back(&list_a, new_node);
-		else
-			break ;
+		string = ft_split(argv[i], ' ');
 		i++;
+		while (string[j] != NULL)
+		{
+			number = (int *)malloc(sizeof(int));
+			*number = ft_atoi(string[j]);
+			new_node = ft_lstnew_new(number);
+			if (new_node)
+				ft_lstadd_back_new(&list_a, new_node);
+			else
+				break ;
+			j++;
+		}
+		j = 0;
 	}
 	if (!list_a_sorted(list_a))
 	{
@@ -95,13 +87,14 @@ int	main(int argc, char **argv)
 			swap_a(&list_a);
 		else if (stack_size(list_a) == 3)
 			sort_three(&list_a);
+		else
+			sort_stacks(&list_a, &list_b);
 	}
-	t_list *current = list_a;
-	printf("Liste_A: \n");
-	while (current != NULL)
-	{
-		printf("%d\n", *((int *)current->content));
-		current = current->next;
-	}
+	// printf("Liste_A sortiert: \n");
+	// while (list_a != 0)
+	// {
+	// 	printf("%d\n", list_a->nbr);
+	// 	list_a = list_a->next;
+	// }
 	return (0);
 }

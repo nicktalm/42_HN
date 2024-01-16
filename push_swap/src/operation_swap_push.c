@@ -6,63 +6,63 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:51:29 by ntalmon           #+#    #+#             */
-/*   Updated: 2023/12/22 12:12:10 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/01/12 16:48:30 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap_a(t_list **stack)
+void	swap_a(t_node **stack)
 {
-	int	*tmp;
+	int	tmp;
 
-	tmp = (*stack)->content;
-	(*stack)->content = (*stack)->next->content;
-	(*stack)->next->content = tmp;
-	printf("sa\n");
+	tmp = (*stack)->nbr;
+	(*stack)->nbr = (*stack)->next->nbr;
+	(*stack)->next->nbr = tmp;
+	ft_printf("sa\n");
 }
 
-void	swap_b(t_list **stack)
+void	swap_b(t_node **stack)
 {
-	int	*tmp;
+	int	tmp;
 
-	tmp = (*stack)->content;
-	(*stack)->content = (*stack)->next->content;
-	(*stack)->next->content = tmp;
-	printf("sb\n");
+	tmp = (*stack)->nbr;
+	(*stack)->nbr = (*stack)->next->nbr;
+	(*stack)->next->nbr = tmp;
+	ft_printf("sb\n");
 }
 
-void	swap_a_b(t_list **stacka, t_list **stackb)
+void	swap_a_b(t_node **stacka, t_node **stackb)
 {
-	int	*tmp;
+	int	tmp;
 
-	tmp = (*stacka)->content;
-	(*stacka)->content = (*stacka)->next->content;
-	(*stacka)->next->content = tmp;
-	tmp = (*stackb)->content;
-	(*stackb)->content = (*stackb)->next->content;
-	(*stackb)->next->content = tmp;
-	printf("ss\n");
+	tmp = (*stacka)->nbr;
+	(*stacka)->nbr = (*stacka)->next->nbr;
+	(*stacka)->next->nbr = tmp;
+	tmp = (*stackb)->nbr;
+	(*stackb)->nbr = (*stackb)->next->nbr;
+	(*stackb)->next->nbr = tmp;
+	ft_printf("ss\n");
 }
 
-void	pa(t_list **fromb, t_list **toa)
+void	pa(t_node **fromb, t_node **toa)
 {
-	t_list	*tmp;
+	t_node	*tmp;
 
 	tmp = *fromb;
 	*fromb = (*fromb)->next;
 	tmp->next = NULL;
-	ft_lstadd_front(toa, tmp);
-	printf("pa\n");
+	ft_lstadd_front_new(toa, tmp);
+	ft_printf("pa\n");
 }
 
-void	pb(t_list **froma, t_list **tob)
+void	pb(t_node **froma, t_node **tob)
 {
-	t_list	*tmp;
+	t_node	*tmp;
 
 	tmp = *froma;
 	*froma = (*froma)->next;
 	tmp->next = NULL;
-	ft_lstadd_front(tob, tmp);
-	printf("pb\n");
+	ft_lstadd_front_new(tob, tmp);
+	ft_printf("pb\n");
 }
