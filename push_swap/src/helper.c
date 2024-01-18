@@ -6,13 +6,13 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:26:24 by ntalmon           #+#    #+#             */
-/*   Updated: 2024/01/16 13:38:39 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:09:22 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	 prep_for_push(t_node **stack,
+void	prep_for_push(t_node **stack,
 						t_node *top_node,
 						char stack_name)
 {

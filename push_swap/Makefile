@@ -1,5 +1,5 @@
 NAME = push_swap
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g
 SRCS = src/push_swap.c \
 		src/operation_rotate.c \
 		src/operation_r_rotate.c \
@@ -8,7 +8,12 @@ SRCS = src/push_swap.c \
 		src/a_to_b.c \
 		src/b_to_a.c \
 		src/sort_stack.c \
-		src/helper.c
+		src/sort_stack_2.c \
+		src/helper.c \
+		src/helper_2.c \
+		src/error.c \
+		src/checks.c \
+		src/parsing.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = lib/libft
 PRINTF = lib/printf

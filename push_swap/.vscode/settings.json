@@ -4,6 +4,10 @@
 		"push_swap.h": "c",
 		"libft.h": "c",
 		"algorithm": "c",
-		"ft_printf.h": "c"
+		"ft_printf.h": "c",
+		"string": "c",
+		"iosfwd": "c",
+		"sstream": "c",
+		"iterator": "c"
 	}
 }

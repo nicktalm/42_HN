@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 12:01:00 by ntalmon           #+#    #+#             */
-/*   Updated: 2024/01/12 16:24:15 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/01/17 16:31:01 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	cost_analysis_a(t_node *a, t_node *b)
 
 void	set_cheapest(t_node *stack)
 {
-	int			cheapest_value;
+	int		cheapest_value;
 	t_node	*cheapest_node;
 
 	if (!stack)
