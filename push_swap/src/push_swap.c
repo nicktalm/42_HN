@@ -6,23 +6,11 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:52:21 by ntalmon           #+#    #+#             */
-/*   Updated: 2024/01/18 14:25:49 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:41:52 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	free_list(t_node *list_a)
-{
-	t_node	*tmp;
-
-	while (list_a)
-	{
-		tmp = list_a->next;
-		free(list_a);
-		list_a = tmp;
-	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -44,12 +32,5 @@ int	main(int argc, char **argv)
 			sort_stacks(&list_a, &list_b);
 	}
 	free_list(list_a);
-	// ft_printf("Liste_A sortiert: \n");
-	// while (list_a != 0)
-	// {
-	// 	ft_printf("%d\n", list_a->nbr);
-	// 	list_a = list_a->next;
-	// }
-	// system("leaks push_swap");
 	return (0);
 }

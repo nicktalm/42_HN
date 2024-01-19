@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:34:27 by ntalmon           #+#    #+#             */
-/*   Updated: 2024/01/17 16:31:17 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/01/19 15:46:51 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	set_target_b(t_node *a, t_node *b)
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->nbr > b->nbr
-				&& current_a->nbr < best_match_index)
+			if (current_a->nbr > b->nbr && current_a->nbr < best_match_index)
 			{
 				best_match_index = current_a->nbr;
 				target_node = current_a;

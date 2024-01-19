@@ -6,28 +6,26 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:26:24 by ntalmon           #+#    #+#             */
-/*   Updated: 2024/01/16 17:09:22 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/01/19 14:08:42 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	prep_for_push(t_node **stack,
-						t_node *top_node,
-						char stack_name)
+void	prep_push(t_node **stack, t_node *top_node, char stack_name)
 {
 	while (*stack != top_node)
 	{
 		if (stack_name == 'a')
 		{
-			if (top_node->above_median)
+			if (top_node->above_half)
 				rotate_a(stack);
 			else
 				rotate_r_a(stack);
 		}
 		else if (stack_name == 'b')
 		{
-			if (top_node->above_median)
+			if (top_node->above_half)
 				rotate_b(stack);
 			else
 				rotate_r_b(stack);

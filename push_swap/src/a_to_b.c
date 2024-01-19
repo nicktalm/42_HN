@@ -6,28 +6,30 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 12:01:00 by ntalmon           #+#    #+#             */
-/*   Updated: 2024/01/17 16:31:01 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/01/19 17:59:48 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+// weist jedem Knoten einen Index zu
+// gibt an ob er sich in der oberen oder unteren Hälfte befindet
 void	current_index(t_node *stack)
 {
 	int	i;
-	int	median;
+	int	half;
 
 	i = 0;
 	if (!stack)
 		return ;
-	median = stack_size(stack) / 2;
+	half = stack_size(stack) / 2;
 	while (stack)
 	{
 		stack->index = i;
-		if (i <= median)
-			stack->above_median = true;
+		if (i <= half)
+			stack->above_half = true;
 		else
-			stack->above_median = false;
+			stack->above_half = false;
 		stack = stack->next;
 		++i;
 	}
@@ -45,8 +47,7 @@ void	set_target_a(t_node *a, t_node *b)
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->nbr < a->nbr
-				&& current_b->nbr > best_match_index)
+			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index)
 			{
 				best_match_index = current_b->nbr;
 				target_node = current_b;
@@ -70,18 +71,18 @@ void	cost_analysis_a(t_node *a, t_node *b)
 	len_b = stack_size(b);
 	while (a)
 	{
-		a->push_cost = a->index;
-		if (!(a->above_median))
-			a->push_cost = len_a - (a->index);
-		if (a->target_node->above_median)
-			a->push_cost += a->target_node->index;
+		a->costs_push = a->index;
+		if (!(a->above_half))
+			a->costs_push = len_a - (a->index);
+		if (a->target_node->above_half)
+			a->costs_push += a->target_node->index;
 		else
-			a->push_cost += len_b - (a->target_node->index);
+			a->costs_push += len_b - (a->target_node->index);
 		a = a->next;
 	}
 }
 
-void	set_cheapest(t_node *stack)
+void	set_cheapest_node(t_node *stack)
 {
 	int		cheapest_value;
 	t_node	*cheapest_node;
@@ -91,9 +92,9 @@ void	set_cheapest(t_node *stack)
 	cheapest_value = INT_MAX;
 	while (stack)
 	{
-		if (stack->push_cost < cheapest_value)
+		if (stack->costs_push < cheapest_value)
 		{
-			cheapest_value = stack->push_cost;
+			cheapest_value = stack->costs_push;
 			cheapest_node = stack;
 		}
 		stack = stack->next;
@@ -107,5 +108,5 @@ void	init_nodes_a(t_node *a, t_node *b)
 	current_index(b);
 	set_target_a(a, b);
 	cost_analysis_a(a, b);
-	set_cheapest(a);
+	set_cheapest_node(a);
 }

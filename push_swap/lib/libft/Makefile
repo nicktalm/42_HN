@@ -45,18 +45,19 @@ BONUSPART = ft_lstnew_bonus.c \
 mandatory = $(MANDATORYPART:.c=.o)
 bonus = $(BONUSPART:.c=.o)
 CFLAGS      = -Wall -Werror -Wextra
+MAKEFLAGS += --silent
 CC          = cc
 #program name --> all parts
 $(NAME): $(mandatory)
-	ar -rs $(NAME) $^
+	@ar rc $(NAME) $^
 bonus: $(mandatory) $(bonus)
-	ar -rs $(NAME) $^
+	@ar rc $(NAME) $^
 %.o : %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+	@$(CC) $(CFLAGS) -c $^ -o $@
 clean:
-	rm -f *.o
+	@rm -f *.o
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 re: fclean all
 all: $(NAME) 
 .PHONY: bonus clean fclean re all

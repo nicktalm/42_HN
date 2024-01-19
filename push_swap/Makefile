@@ -1,5 +1,5 @@
 NAME = push_swap
-CFLAGS = -g
+CFLAGS = -Wall -Wextra -Werror
 SRCS = src/push_swap.c \
 		src/operation_rotate.c \
 		src/operation_r_rotate.c \
@@ -11,7 +11,7 @@ SRCS = src/push_swap.c \
 		src/sort_stack_2.c \
 		src/helper.c \
 		src/helper_2.c \
-		src/error.c \
+		src/error_free.c \
 		src/checks.c \
 		src/parsing.c
 OBJS = $(SRCS:.c=.o)
@@ -19,24 +19,37 @@ LIBFT = lib/libft
 PRINTF = lib/printf
 INLIBFT = -L $(LIBFT) -lft
 INPRINF = -L $(PRINTF) -lftprintf
+
+BBlue="\033[1;34m"
+BPurple="\033[1;35m"
+BRed='\033[1;31m'
+BGreen='\033[1;32m'
+DEF_COLOR = '\033[0;39m'
+
 $(NAME):		$(OBJS)
+				@echo $(BBlue)"Compiling printf..."$(DEF_COLOR)
 				@cd $(PRINTF) && $(MAKE) all
+				@echo $(BPurple)"Compiling libft..."$(DEF_COLOR)
 				@cd $(LIBFT) && $(MAKE) all
+				@echo $(BPurple)"Compiling libft bonus..."$(DEF_COLOR)
 				@cd $(LIBFT) && $(MAKE) bonus
-				cc $(OBJS) $(INLIBFT) $(INPRINF) -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME) $(CFLAGS)
+				@echo $(BGreen)"Compiling $(NAME)..."$(DEF_COLOR)
+				@cc $(OBJS) $(INLIBFT) $(INPRINF) -o $(NAME) $(CFLAGS)
 
 all:		$(NAME)
 
 %.o:%.c
-				cc ${CFLAGS} -c $< -o $@
+				@cc ${CFLAGS} -c $< -o $@
 
 clean:
-				rm -f $(OBJS)
+				@echo $(BRed)"Cleaning object files..."$(DEF_COLOR)
+				@rm -f $(OBJS)
 				@cd $(LIBFT) && $(MAKE) clean
 				@cd $(PRINTF) && $(MAKE) clean
 
-fclean:		clean
-				rm -f $(NAME)
+fclean:			clean
+				@echo $(BRed)"Cleaning executable files..."$(DEF_COLOR)
+				@rm -f $(NAME)
 				@cd $(LIBFT) && $(MAKE) fclean
 				@cd $(PRINTF) && $(MAKE) fclean
 

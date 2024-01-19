@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:08:31 by ntalmon           #+#    #+#             */
-/*   Updated: 2024/01/18 13:42:10 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:42:33 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,29 @@ void	check_list(char **string)
 	check_nbr(string);
 	check_min_max(string);
 	check_dup(string);
+}
+
+void	check_spaces(char **argv)
+{
+	int	i;
+	int	j;
+	int	c;
+
+	j = 1;
+	c = 0;
+	while (argv[j])
+	{
+		i = 0;
+		while (argv[j][i] != '\0')
+		{
+			if (argv[j][i] == ' ' || argv[j][i] == '\t' || argv[j][i] == '\n'
+				|| argv[j][i] == '\v' || argv[j][i] == '\f'
+				|| argv[j][i] == '\r')
+				c++;
+			i++;
+		}
+		if (i == 0 || i == c)
+			error ();
+		j++;
+	}
 }
