@@ -6,11 +6,17 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:27:32 by ntalmon           #+#    #+#             */
-/*   Updated: 2024/02/01 15:27:42 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/02/14 15:55:09 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
+
+// Diese Funktion liest Bit für Bit von signal
+// setzt die entsprechenden Bits in i.
+// Wenn ein vollständiges Byte empfangen wurde, wird
+// das entsprechende Zeichen (ASCII-Code) ausgegeben und
+// die Variablen zurückgesetzt, um das nächste Byte zu empfangen.
 
 void	decode_char(int signal)
 {
@@ -40,8 +46,8 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	pid = getpid();
-	ft_printf(S_PID, pid);
-	ft_putendl_fd(S_WLC, 1);
+	ft_printf(M_PID, pid);
+	ft_putendl_fd(M_START, 1);
 	while (argc == 1)
 	{
 		signal(SIGUSR1, decode_char);
